@@ -9,11 +9,18 @@
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300&display=swap');
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         h1, h2 { font-family: 'Dancing Script', cursive; }
-        h2 { font-size: 4rem; }
+        h2 {
+            font-size: 4rem;
+            line-height: 1.2;
+            word-wrap: break-word;
+            overflow-wrap: break-word; /* Assicura che il testo non esca dal contenitore */
+            white-space: normal;
+            text-align: center;
+        }
         .section { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; padding: 4rem; width: 100vw; position: relative; }
         .show { opacity: 1; transform: translateY(0); }
         .hero {
-            background: url('https://dummyimage.com/1200x800/000/fff.jpg') center/cover no-repeat;
+            background: url('res/header-image.jpg') center/cover no-repeat;
             height: 100vh;
             width: 100vw;
             display: flex;
@@ -24,6 +31,7 @@
             color: white;
             font-size: 2rem;
             position: relative;
+            transition: opacity 0.3s ease-in-out;
         }
         .hero::after {
             content: "";
@@ -33,81 +41,118 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
         }
-        .hero h1 {
+        .hero h1, .countdown {
             position: relative;
             z-index: 1;
-            font-size: 5rem;
+        }
+        .hero h1 { font-size: 7rem; }
+        .countdown {
+            font-size: 2rem;
+            margin-top: 10px;
         }
         .img-container {
-            width: 50vw;
-            height: 90vh;
+            width: 55vw;
+            height: 55vw;
+            max-width: 1000px;
+            max-height: 1000px;
             background-size: cover;
             background-position: center;
-            clip-path: circle(55% at 90% 50%);
+            border-radius: 50%;
             position: absolute;
-            right: 0;
+            right: -10vw;
             top: 50%;
             transform: translateY(-50%);
         }
         .reverse .img-container {
-            clip-path: circle(55% at 10% 50%);
-            left: 0;
+            left: -10vw;
             right: auto;
         }
         .text-container {
             width: 40vw;
-            margin-left: 5vw;
+            margin-right: auto;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+        .text-container h2 {
+            font-size: 5rem;
+            line-height: 0.9;
+            word-wrap: break-word;
+            overflow-wrap: break-word; 
+            white-space: normal;
+            text-align: center;
+        }
         .reverse .text-container {
-            margin-right: 5vw;
             margin-left: auto;
+            margin-right: 0;
         }
         .btn {
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
             cursor: pointer;
             display: inline-block;
+            position: relative;
+            z-index: 100000;
         }
         .btn:hover {
             transform: scale(1.1);
             background-color: #065f46;
             color: white;
         }
+        #details a {
+            color: #065f46; 
+            text-decoration: underline; 
+            font-weight: bold; 
+            transition: color 0.3s ease-in-out;
+        }
+
+        #details a:hover {
+            color: #047857; /* Cambia colore al passaggio del mouse */
+        }
     </style>
 </head>
 <body class="bg-emerald-50 text-gray-800">
     <section class="hero" id="hero">
         <h1>Matrimonio di Sara e Stefano</h1>
-        <p>Un giorno speciale per celebrare il nostro amore</p>
-        <button id="scrollButton" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg btn">Vai alle info</button>
+        <div class="countdown" id="countdown"></div>
+        <a class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg btn" href="#details">Vai alle info</a>
     </section>
     
     <section class="section fade-section bg-white" id="story">
-        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
+        <div class="img-container" style="background-image: url('res/IMG_20170418_130109.jpg');"></div>
         <div class="text-container">
-            <h2 class="text-4xl text-emerald-700 font-semibold">La nostra storia</h2>
-            <p>Ci siamo conosciuti in un giorno di primavera e da allora abbiamo condiviso momenti indimenticabili...</p>
+            <h2 class="text-4xl text-emerald-700 font-semibold">La nostra storia</h2><br><br>
+            <p>Sono quasi 10 anni che stiamo insieme e insieme abbiamo condiviso momenti indimenticabili...</p>
         </div>
     </section>
     
     <section class="section fade-section bg-emerald-50 reverse" id="future">
         <div class="text-container">
-            <h2 class="text-4xl text-emerald-700 font-semibold">I nostri progetti futuri</h2>
-            <p>Guardiamo con entusiasmo al nostro futuro insieme...</p>
+            <h2 class="text-4xl text-emerald-700 font-semibold">I nostri progetti futuri</h2><br><br>
+            <p>Andiamo in Tanzaniaaaa</p>
         </div>
-        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
+        <div class="img-container" style="background-image: url('res/tanzania.jpg');"></div>
     </section>
     
     <section class="section fade-section bg-white" id="details">
-        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
+        <div class="img-container" style="background-image: url('res/3597483.jpg');"></div>
         <div class="text-container">
-            <h2 class="text-4xl text-emerald-700 font-semibold">Dettagli del matrimonio</h2>
-            <p>📍 Location: Villa Verde, Firenze<br>🕘 Orario: 15:00 - 23:00</p>
+            <h2 class="text-4xl text-emerald-700 font-semibold">Dettagli del matrimonio</h2><br><br>
+            <p>📍 Location: Chiesa di Santa Maria di Viatosto<br><a href="https://g.co/kgs/DtsCK6r">https://g.co/kgs/DtsCK6r</a><br>🕘 Orario: 16:00<br>
+            <br>Il ricevimento si terrà dopo la celebrazione a<br>📍 Villa San Domenico, Sessant AT<br><a href="https://g.co/kgs/RbU1QAU">https://g.co/kgs/RbU1QAU</a></p>
         </div>
+    </section>
+    
+    <section class="section fade-section bg-emerald-50 reverse" id="regali">
+        <div class="text-container">
+            <h2 class="text-4xl text-emerald-700 font-semibold">Grazie del vostro affetto!</h2><br><br>
+            <p>La vostra presenza per noi è già un dono prezioso e vi ringraziamo di condividere con noi questo momento.<br>
+                Se è vostro desiderio farci un regalo, potete contribuire ai nostri progetti futuri qui!
+            </p>
+        </div>
+        <div class="img-container" style="background-image: url('res/future.png');"></div>
     </section>
     
     <footer class="text-center py-6 text-gray-600">
@@ -115,8 +160,52 @@
     </footer>
     
     <script>
-        document.getElementById("scrollButton").addEventListener("click", function() {
-            document.getElementById("details").scrollIntoView({ behavior: "smooth" });
+        document.addEventListener("DOMContentLoaded", function() {
+            const hero = document.querySelector(".hero");
+            const fadeStart = 50; // Inizia a sbiadire dopo 50px di scroll
+            const fadeEnd = 500;  // Completamente trasparente dopo 300px
+
+            window.addEventListener("scroll", function() {
+                let scrollPos = window.scrollY;
+
+                if (scrollPos < fadeStart) {
+                    hero.style.opacity = "1"; // Completamente visibile in alto
+                } else if (scrollPos > fadeEnd) {
+                    hero.style.opacity = "0.2"; // Completamente trasparente in basso
+                } else {
+                    let opacity = 1 - (scrollPos - fadeStart) / (fadeEnd - fadeStart) + 0.2;
+                    hero.style.opacity = opacity.toString();
+                }
+            });
+            const sections = document.querySelectorAll(".section");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show"); // Rimuove la classe quando la sezione esce dal viewport
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            sections.forEach(section => observer.observe(section));
+            
+            function updateCountdown() {
+                const weddingDate = new Date("2025-08-30T16:00:00");
+                const now = new Date();
+                const diff = weddingDate - now;
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / (1000));
+                    document.getElementById("countdown").innerText = `Mancano ${days} giorni, ${hours} ore, ${minutes} minuti e ${seconds} secondi!`;
+                } else {
+                    document.getElementById("countdown").innerText = "Il grande giorno è arrivato!";
+                }
+            }
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </body>
