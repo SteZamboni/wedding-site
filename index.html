@@ -131,6 +131,22 @@
             .hero h1 {
                 font-size: 3rem; /* Riduce il titolo per telefoni */
             }
+            .section {
+                flex-direction: column-reverse; /* Porta l'immagine sopra il testo */
+                align-items: center;
+                text-align: center; /* Mantiene il testo centrato */
+            }
+
+            .img-container {
+                width: 80vw;
+                max-width: 500px;
+                position: static; /* Elimina il posizionamento assoluto */
+                margin: 0 auto 20px auto; /* Spazio sotto l'immagine */
+            }
+
+            .text-container {
+                width: 90%; /* Adatta il testo su mobile */
+            }
         }
     </style>
 </head>
