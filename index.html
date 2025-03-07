@@ -44,14 +44,10 @@
             height: 100vh;
             background-size: cover;
             background-position: center;
-            border-top-left-radius: 50%;
-            border-bottom-left-radius: 50%;
+            clip-path: circle(50% at 100% 50%);
         }
         .reverse .img-container {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            border-top-right-radius: 50%;
-            border-bottom-right-radius: 50%;
+            clip-path: circle(50% at 0% 50%);
         }
     </style>
 </head>
@@ -59,7 +55,7 @@
     <section class="hero" id="hero">
         <h1>Matrimonio di Sara e Stefano</h1>
         <p>Un giorno speciale per celebrare il nostro amore</p>
-        <a href="#details" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg">Vai alle info</a>
+        <button onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' });" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg">Vai alle info</button>
     </section>
     
     <section class="section fade-section bg-white" id="story">
