@@ -10,11 +10,12 @@
         body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         h1, h2 { font-family: 'Dancing Script', cursive; }
         h2 { font-size: 4rem; }
-        .section { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; padding: 4rem; }
+        .section { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; padding: 4rem; width: 100vw; }
         .show { opacity: 1; transform: translateY(0); }
         .hero {
             background: url('https://dummyimage.com/1200x800/000/fff.jpg') center/cover no-repeat;
             height: 100vh;
+            width: 100vw;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -39,13 +40,18 @@
             font-size: 5rem;
         }
         .img-container {
-            width: 50%;
-            height: auto;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 50vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
         }
-        .reverse {
-            flex-direction: row-reverse;
+        .reverse .img-container {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
         }
     </style>
 </head>
@@ -53,36 +59,30 @@
     <section class="hero" id="hero">
         <h1>Matrimonio di Sara e Stefano</h1>
         <p>Un giorno speciale per celebrare il nostro amore</p>
-        <button onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' });" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg">Vai alle info</button>
+        <a href="#details" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg">Vai alle info</a>
     </section>
     
     <section class="section fade-section bg-white" id="story">
-        <div class="max-w-4xl mx-auto flex items-center">
-            <img src="https://dummyimage.com/1200x800/000/fff.jpg" alt="La nostra storia" class="img-container">
-            <div class="text-left p-6">
-                <h2 class="text-4xl text-emerald-700 font-semibold">La nostra storia</h2>
-                <p>Ci siamo conosciuti in un giorno di primavera e da allora abbiamo condiviso momenti indimenticabili...</p>
-            </div>
+        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
+        <div class="max-w-4xl p-6 text-left">
+            <h2 class="text-4xl text-emerald-700 font-semibold">La nostra storia</h2>
+            <p>Ci siamo conosciuti in un giorno di primavera e da allora abbiamo condiviso momenti indimenticabili...</p>
         </div>
     </section>
     
     <section class="section fade-section bg-emerald-50 reverse" id="future">
-        <div class="max-w-4xl mx-auto flex items-center">
-            <div class="text-right p-6">
-                <h2 class="text-4xl text-emerald-700 font-semibold">I nostri progetti futuri</h2>
-                <p>Guardiamo con entusiasmo al nostro futuro insieme...</p>
-            </div>
-            <img src="https://dummyimage.com/1200x800/000/fff.jpg" alt="I nostri progetti" class="img-container">
+        <div class="max-w-4xl p-6 text-right">
+            <h2 class="text-4xl text-emerald-700 font-semibold">I nostri progetti futuri</h2>
+            <p>Guardiamo con entusiasmo al nostro futuro insieme...</p>
         </div>
+        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
     </section>
     
     <section class="section fade-section bg-white" id="details">
-        <div class="max-w-4xl mx-auto flex items-center">
-            <img src="https://dummyimage.com/1200x800/000/fff.jpg" alt="Location matrimonio" class="img-container">
-            <div class="text-left p-6">
-                <h2 class="text-4xl text-emerald-700 font-semibold">Dettagli del matrimonio</h2>
-                <p>📍 Location: Villa Verde, Firenze<br>🕘 Orario: 15:00 - 23:00</p>
-            </div>
+        <div class="img-container" style="background-image: url('https://dummyimage.com/1200x800/000/fff.jpg');"></div>
+        <div class="max-w-4xl p-6 text-left">
+            <h2 class="text-4xl text-emerald-700 font-semibold">Dettagli del matrimonio</h2>
+            <p>📍 Location: Villa Verde, Firenze<br>🕘 Orario: 15:00 - 23:00</p>
         </div>
     </section>
     
