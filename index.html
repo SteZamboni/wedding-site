@@ -44,28 +44,28 @@
             height: 90vh;
             background-size: cover;
             background-position: center;
-            clip-path: circle(70% at 100% 50%);
+            clip-path: circle(55% at 90% 50%);
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
         }
         .reverse .img-container {
-            clip-path: circle(70% at 0% 50%);
+            clip-path: circle(55% at 10% 50%);
             left: 0;
             right: auto;
         }
         .text-container {
             width: 40vw;
-            margin-right: auto;
+            margin-left: 5vw;
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         .reverse .text-container {
+            margin-right: 5vw;
             margin-left: auto;
-            margin-right: 0;
         }
         .btn {
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -83,7 +83,7 @@
     <section class="hero" id="hero">
         <h1>Matrimonio di Sara e Stefano</h1>
         <p>Un giorno speciale per celebrare il nostro amore</p>
-        <button onclick="document.getElementById('details').scrollIntoView({ behavior: 'smooth' });" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg btn">Vai alle info</button>
+        <button id="scrollButton" class="mt-6 bg-white text-emerald-700 py-2 px-4 rounded shadow-lg btn">Vai alle info</button>
     </section>
     
     <section class="section fade-section bg-white" id="story">
@@ -115,18 +115,8 @@
     </footer>
     
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll(".section");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("show");
-                    } else {
-                        entry.target.classList.remove("show");
-                    }
-                });
-            }, { threshold: 0.3 });
-            sections.forEach(section => observer.observe(section));
+        document.getElementById("scrollButton").addEventListener("click", function() {
+            document.getElementById("details").scrollIntoView({ behavior: "smooth" });
         });
     </script>
 </body>
