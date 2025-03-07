@@ -131,13 +131,11 @@
             .hero h1 {
                 font-size: 3rem; /* Riduce il titolo per telefoni */
             }
-            .section {
-                flex-direction: column-reverse; /* Porta l'immagine sopra il testo */
+            .section,
+            .reverse { 
+                flex-direction: column-reverse !important; /* Forza sempre l'immagine sopra */
                 align-items: center;
-                text-align: center; /* Mantiene il testo centrato */
-            }
-            .reverse {
-                flex-direction: column-reverse !important; /* Sovrascrive la classe reverse */
+                text-align: center;
             }
 
             .img-container {
