@@ -111,6 +111,27 @@
         #details a:hover {
             color: #047857; /* Cambia colore al passaggio del mouse */
         }
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 2.5rem; /* Titoli più piccoli */
+            }
+
+            .section {
+                flex-wrap: wrap;
+                text-align: center; /* Testo centrato per migliorare la leggibilità */
+            }
+
+            .img-container {
+                width: 80vw; /* Migliore adattamento su schermi piccoli */
+                max-width: 500px; /* Evita immagini troppo grandi */
+                position: static; /* Evita che escano dal contenitore */
+                margin: 20px auto; /* Centra l'immagine su mobile */
+            }
+
+            .hero h1 {
+                font-size: 3rem; /* Riduce il titolo per telefoni */
+            }
+        }
     </style>
 </head>
 <body class="bg-emerald-50 text-gray-800">
