@@ -17,7 +17,18 @@
             white-space: normal;
             text-align: center;
         }
-        .section { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; padding: 4rem; width: 100vw; position: relative; }
+        .section { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
+            padding: 4rem; 
+            width: 100vw; 
+            position: relative; 
+        }
         .show { opacity: 1; transform: translateY(0); }
         .hero {
             background: url('res/header-image.jpg') center/cover no-repeat;
@@ -107,46 +118,43 @@
             font-weight: bold; 
             transition: color 0.3s ease-in-out;
         }
-
         #details a:hover {
             color: #047857; /* Cambia colore al passaggio del mouse */
         }
+
+        /* Media Queries per dispositivi mobili e schermi piccoli */
         @media (max-width: 768px) {
-            .section h2 {
-                font-size: 2.5rem; /* Titoli più piccoli */
-            }
-
             .section {
-                flex-wrap: wrap;
-                text-align: center; /* Testo centrato per migliorare la leggibilità */
-            }
-
-            .img-container {
-                width: 80vw; /* Migliore adattamento su schermi piccoli */
-                max-width: 500px; /* Evita immagini troppo grandi */
-                position: static; /* Evita che escano dal contenitore */
-                margin: 20px auto; /* Centra l'immagine su mobile */
-            }
-
-            .hero h1 {
-                font-size: 3rem; /* Riduce il titolo per telefoni */
-            }
-            .section,
-            .reverse { 
-                flex-direction: column-reverse !important; /* Forza sempre l'immagine sopra */
+                flex-direction: column;
                 align-items: center;
+                justify-content: center;
+                padding: 2rem;
+            }
+            /* Forza l'ordine: immagine sopra, testo sotto */
+            .img-container { 
+                width: 80vw;
+                height: 80vw;
+                order: 1;
+                margin-bottom: 2rem;
+                position: relative;
+                right: auto;
+                left: auto;
+                transform: none;
+            }
+            .text-container { 
+                width: 90vw;
+                order: 2;
+                margin: 0 auto;
                 text-align: center;
             }
-
-            .img-container {
-                width: 80vw;
-                max-width: 500px;
-                position: static; /* Elimina il posizionamento assoluto */
-                margin: 0 auto 20px auto; /* Spazio sotto l'immagine */
+            .hero h1 {
+                font-size: 4rem;
             }
-
-            .text-container {
-                width: 90%; /* Adatta il testo su mobile */
+            .countdown {
+                font-size: 1.5rem;
+            }
+            .text-container h2 {
+                font-size: 3rem;
             }
         }
     </style>
