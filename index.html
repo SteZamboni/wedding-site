@@ -7,7 +7,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Poppins:wght@300&display=swap');
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
         h1, h2 { font-family: 'Dancing Script', cursive; }
         h2 {
             font-size: 4rem;
@@ -128,34 +132,43 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 2rem;
+                padding: 2rem 1rem;
+                position: relative; /* per contenere le immagini non più assolute */
             }
-            /* Forza l'ordine: immagine sopra, testo sotto */
+
             .img-container { 
                 width: 80vw;
                 height: 80vw;
-                order: 1;
                 margin-bottom: 2rem;
-                position: relative;
-                right: auto;
+                position: relative;  /* cambia da absolute a relative */
                 left: auto;
+                right: auto;
+                top: auto;
                 transform: none;
             }
+
             .text-container { 
                 width: 90vw;
-                order: 2;
                 margin: 0 auto;
                 text-align: center;
             }
+
             .hero h1 {
-                font-size: 4rem;
-            }
-            .countdown {
-                font-size: 1.5rem;
-            }
-            .text-container h2 {
                 font-size: 3rem;
+                padding: 0 1rem;
             }
+
+            .countdown {
+                font-size: 1.2rem;
+                padding: 0 1rem;
+            }
+
+            .text-container h2 {
+                font-size: 2.5rem;
+            }
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
     </style>
 </head>
