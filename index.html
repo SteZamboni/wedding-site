@@ -128,6 +128,16 @@
         #details a:hover {
             color: #047857; /* Cambia colore al passaggio del mouse */
         }
+        .iframe-container {
+            text-align: center;
+            width: 100%;
+        }
+
+        .iframe-container iframe {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
 
         /* Media Queries per dispositivi mobili e schermi piccoli */
         @media (max-width: 768px) {
@@ -212,7 +222,11 @@
         <div class="img-container" style="background-image: url('res/tanzania.jpg');"></div>
     </section>
     
-    <br><br><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdOXLQSueGUPWS89pxoPk7362j71FFdFjI-P0RPPx7SQUdWXw/viewform?embedded=true" width="640" height="821" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <br><br>
+    <div class="iframe-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdOXLQSueGUPWS89pxoPk7362j71FFdFjI-P0RPPx7SQUdWXw/viewform?embedded=true"
+        width="640" height="821" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
 
     <footer class="text-center py-6 text-gray-600">
         <p>&copy; 2025 Sara & Stefano - Con amore</p>
