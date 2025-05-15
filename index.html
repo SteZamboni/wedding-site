@@ -280,6 +280,8 @@
                 }
             });
             const sections = document.querySelectorAll(".section");
+            const isMobile = window.innerWidth < 768;
+            const thresholdValue = isMobile ? 0.2 : 0.4;
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -288,7 +290,7 @@
                         entry.target.classList.remove("show"); // Rimuove la classe quando la sezione esce dal viewport
                     }
                 });
-            }, { threshold: 0.4 });
+            }, { threshold: thresholdValue });
 
             sections.forEach(section => observer.observe(section));
             
